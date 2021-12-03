@@ -93,6 +93,9 @@ public class Controller {
 			}
 
 		} while (!dec.equals("4"));
+		  vista.show("Muchas Gracias");
+		
+	
 
 
 	}
