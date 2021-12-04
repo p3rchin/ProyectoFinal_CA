@@ -33,6 +33,7 @@ public class Controller {
 	public Controller() {
 		m = new Menu();
 		vista = new View();
+		conejo = new Conejo();
 		run();
 	}
 
@@ -128,6 +129,8 @@ public class Controller {
 				int fy = Integer.parseInt(vista.write("Ingrese la posicion en y final: "));
 				int conejoPos[] = { cx, cy };
 				int posFinal[] = { fx, fy };
+				vista.show("La menor cantidad de saltos para llegar al punto final es: ");
+				vista.show(""+conejo.caminoMasCorto(conejoPos, posFinal, filas, columnas));
 					
 					
 

@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class Conejo {
 
-	static int caminoMasCorto(int posInicial[], int posFinal[], int filas, int columnas) {
+	public int caminoMasCorto(int posInicial[], int posFinal[], int filas, int columnas) {
 		int movX[] = { -1, 1, -1, 1 };
 
 		int movY[] = { -1, -1, 1, 1 };
@@ -38,18 +38,10 @@ public class Conejo {
 		return Integer.MAX_VALUE;
 	}
 
-	static boolean verificar(int x, int y, int n, int m) {
+	public boolean verificar(int x, int y, int n, int m) {
 		boolean resultado = false;
 		if (x >= 0 && x <= n && y >= 0 && y <= m)
 			resultado = true;
 		return resultado;
-	}
-
-	public static void main(String[] args) {
-		int filas = 3;
-		int columnas = 4;
-		int knightPos[] = { 0, 3 };
-		int targetPos[] = { 2, 3 };
-		System.out.println(caminoMasCorto(knightPos, targetPos, filas, columnas));
 	}
 }
