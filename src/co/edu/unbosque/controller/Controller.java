@@ -1,5 +1,7 @@
 package co.edu.unbosque.controller;
 
+import co.edu.unbosque.model.Comida;
+import co.edu.unbosque.model.Menu;
 import co.edu.unbosque.view.View;
 
 /**
@@ -17,6 +19,8 @@ public class Controller {
 	 */
 
 	private View vista;
+	
+	private Menu m;
 
 	/**
 	 * Constructor de la clase Controller en donde se inicializan las clases que
@@ -24,7 +28,7 @@ public class Controller {
 	 */
 
 	public Controller() {
-
+		m = new Menu();
 		vista = new View();
 		run();
 	}
@@ -53,13 +57,48 @@ public class Controller {
 
 			switch (dec) {
 			case "1":
-				String t = vista.write(" Ingreso 1 ");
+				String opcionMenu = vista.write("[1] Usar un menú pre-seleccionado\n[2]Ingresar tu propio menú.");
 				try {
-					if (vista.exceptionNumber(t)) {
+					String comida = "";
+					int calorias = 0;
+					if (opcionMenu.equals("1")) {
+
+						Comida[] listaComidas = { new Comida("Pollo", 150), new Comida("Carne", 190),
+								new Comida("Arroz", 80), new Comida("Huevo", 100), new Comida("Lentejas", 210),
+								new Comida("Juego de maracuyá", 39)
+
+						};
+						
+						Menu mUsuario = new Menu(600, listaComidas.length);
+						Menu calculoM = new Menu(0, listaComidas.length);
+						
+						System.out.println(m.realizarCalculo(mUsuario, listaComidas, false, calculoM));
+						
+
+					} else {
+
+						String tam = vista.write("Ingresa el tamaño del menú: ");
+						int tamanio = Integer.parseInt(tam);
+						Comida[] listaComidas = new Comida[tamanio];
+
+						for (int i = 0; i < listaComidas.length; i++) {
+							comida = vista.write("Ingrese el nombre de la comida: " + (i + 1) + ": ");
+							calorias = Integer
+									.parseInt(vista.write("Ingrese las calorias de la comida " + (i + 1) + ": "));
+							listaComidas[i] = new Comida(comida, calorias);
+						}
+
+						int cantidadC = Integer.parseInt(vista.write("Ingrese la cantidad de calorias que necesita: "));
+
+						Menu mUsuario = new Menu(cantidadC, listaComidas.length);
+						Menu calculoM = new Menu(cantidadC, listaComidas.length);
+
+						System.out.println(m.realizarCalculo(mUsuario, listaComidas, false, calculoM));
 
 					}
+
 				} catch (Exception e1) {
-					vista.show("Ingrese bien los numeros");
+					vista.show("Ingrese bien los numeros 1" + e1.getMessage());
 				}
 
 				break;
