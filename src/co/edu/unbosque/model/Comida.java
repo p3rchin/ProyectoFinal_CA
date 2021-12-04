@@ -1,12 +1,27 @@
 package co.edu.unbosque.model;
 
+/**
+ * Clase de Comida, donde se guarda el plato y las calorias que este tiene.
+ * 
+ * @authors Santiago Porras Sepúlveda, Fabian Camilo Gomez, Omar Felipe Ladino y
+ *          Juan Felipe Rojas
+ *
+ */
+
 public class Comida {
  
 	private String nombre;
+	
     private int calorias;
     
     private Comida[] c;
     
+    
+    /**
+     * Constructor 
+     * @param nombre del plato. nombre!=null
+     * @param calorias del plato . calorias !=null
+     */
     public Comida(String nombre, int calorias) {
         this.calorias = calorias;
         this.nombre = nombre;

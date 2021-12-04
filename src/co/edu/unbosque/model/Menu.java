@@ -1,14 +1,31 @@
 package co.edu.unbosque.model;
 
+
+/**
+ * Clase de Menu, donde se encuentra la lista de platos, la cantidad de calorias maximas y la cantidad de calorias a tener en cuenta.
+ * 
+ * @authors Santiago Porras Sepúlveda, Fabian Camilo Gomez, Omar Felipe Ladino y
+ *          Juan Felipe Rojas
+ *
+ */
 public class Menu {
 
 	private int cantidadMax;
 	private Comida[] comidaElementos;
 	private int calorias;
 
+	/**
+	 * constructor vacio
+	 */
 	public Menu() {
 		
 	}
+	
+	/**
+	 * Metodo menu que contiene la cantidad maxima y el numero de elementos
+	 * @param cantidadMaxima de calorias. cantidadMaxima !=null
+	 * @param numElementos cantidad de platos . numElementos !=null
+	 */
 
 	public Menu(int cantidadMaxima, int numElementos) {
 		this.cantidadMax = cantidadMaxima;
@@ -16,24 +33,48 @@ public class Menu {
 		this.calorias = 0;
 	}
 
-	public Comida[] getComidaElementos() {
-		return comidaElementos;
-	}
+	
 
-	public int getCalorias() {
-		return calorias;
-	}
-
-	public void setCalorias(int beneficio) {
-		this.calorias = beneficio;
-	}
-
+	/**
+	 * @return the cantidadMax
+	 */
 	public int getCantidadMax() {
 		return cantidadMax;
 	}
 
-	public void setCantidadMax(int pesoMaximo) {
-		this.cantidadMax = pesoMaximo;
+	/**
+	 * @param cantidadMax the cantidadMax to set
+	 */
+	public void setCantidadMax(int cantidadMax) {
+		this.cantidadMax = cantidadMax;
+	}
+
+	/**
+	 * @return the comidaElementos
+	 */
+	public Comida[] getComidaElementos() {
+		return comidaElementos;
+	}
+
+	/**
+	 * @param comidaElementos the comidaElementos to set
+	 */
+	public void setComidaElementos(Comida[] comidaElementos) {
+		this.comidaElementos = comidaElementos;
+	}
+
+	/**
+	 * @return the calorias
+	 */
+	public int getCalorias() {
+		return calorias;
+	}
+
+	/**
+	 * @param calorias the calorias to set
+	 */
+	public void setCalorias(int calorias) {
+		this.calorias = calorias;
 	}
 
 	/**
@@ -82,7 +123,7 @@ public class Menu {
 	 * Indica si existe un elemento
 	 * 
 	 * @param e
-	 * @return
+	 * @return una comida existente o no
 	 */
 	public boolean existeComida(Comida e) {
 		for (int i = 0; i < this.comidaElementos.length; i++) {
@@ -96,7 +137,7 @@ public class Menu {
 	/**
 	 * Muestra la mochila
 	 * 
-	 * @return
+	 * @return una cadena de string 
 	 */
 	public String toString() {
 		String cadena = "";
@@ -109,6 +150,15 @@ public class Menu {
 		cadena += "Calorias: " + getCalorias() + "\n";
 		return cadena;
 	}
+	
+	/**
+	 * Metodo para realizar el calculo del menu
+	 * @param menu con el que se cuenta. menu!=null
+	 * @param elementos lista de platos . elementos !=null
+	 * @param total verificacion de si cumple con las calorias. total!=null
+	 * @param mOptimo menu ideal . mOptimo!=null
+	 * @return la lista de platos esperada
+	 */
 
 	public Menu realizarCalculo(Menu menu, Comida[] elementos, boolean total, Menu mOptimo) {
 

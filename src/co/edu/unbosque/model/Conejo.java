@@ -2,7 +2,24 @@ package co.edu.unbosque.model;
 
 import java.util.Vector;
 
+/**
+ * Clase de Conejo, donde esta la distancia mas corta que debe recorrrer el conejo para llegar a su destino.
+ * 
+ * @authors Santiago Porras Sepúlveda, Fabian Camilo Gomez, Omar Felipe Ladino y
+ *          Juan Felipe Rojas
+ *
+ */
+
 public class Conejo {
+	
+	/**
+	 * Metodo CaminoMasCorto, el cual halla la menor cantidad de saltos para llegar de un lugar a otro (saltos en diagonal)
+	 * @param posInicial es donde se encuentra situado el conejo . posInicial!=null
+	 * @param posFinal   es el destino a donde debe llegar el conejo. posFinal!=null
+	 * @param filas      es la cantidad de filas que tiene el campo. filas!=null && filas >0
+	 * @param columnas   es la cantidad de columnas que tiene el campo. columnas !=null && columnas >0
+	 * @return el camino mas corto por el conejo.
+	 */
 
 	public int caminoMasCorto(int posInicial[], int posFinal[], int filas, int columnas) {
 		int movX[] = { -1, 1, -1, 1 };
@@ -37,6 +54,15 @@ public class Conejo {
 		}
 		return Integer.MAX_VALUE;
 	}
+	
+	/**
+	 * Verifica que el conejo no se salga de los parametros enviados por el usuario
+	 * @param x la coordenada en x a verificar. x !=null && x >0
+	 * @param y la coordenada en y a verificar. y !=null && y >0
+	 * @param n la cantidad de filas a donde puede llegar el conejo. n!=null
+	 * @param m la cantidad de filas a donde puede llegar el conejo. n!=null
+	 * @return
+	 */
 
 	public boolean verificar(int x, int y, int n, int m) {
 		boolean resultado = false;

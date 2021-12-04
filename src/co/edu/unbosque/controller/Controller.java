@@ -129,10 +129,16 @@ public class Controller {
 				int fy = Integer.parseInt(vista.write("Ingrese la posicion en y final: "));
 				int conejoPos[] = { cx, cy };
 				int posFinal[] = { fx, fy };
-				vista.show("La menor cantidad de saltos para llegar al punto final es: ");
-				vista.show(""+conejo.caminoMasCorto(conejoPos, posFinal, filas, columnas));
-					
-					
+				
+				int resultado= conejo.caminoMasCorto(conejoPos, posFinal, filas, columnas);
+				if(resultado==2147483647) {
+					vista.show("Camino imposible de cruzar");
+				}else {
+					vista.show("La menor cantidad de saltos para llegar al punto final es: ");
+					vista.show(""+ resultado);
+				}
+				
+
 
 				} catch (Exception e) {
 					vista.show("Escriba bien el numero");
