@@ -1,6 +1,7 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.Comida;
+import co.edu.unbosque.model.Conejo;
 import co.edu.unbosque.model.Menu;
 import co.edu.unbosque.view.View;
 
@@ -21,6 +22,8 @@ public class Controller {
 	private View vista;
 	
 	private Menu m;
+	
+	private Conejo conejo;
 
 	/**
 	 * Constructor de la clase Controller en donde se inicializan las clases que
@@ -115,9 +118,18 @@ public class Controller {
 				break;
 
 			case "3":
-
-				String t3 = vista.write("Ingreso 3");
 				try {
+					
+				int filas = Integer.parseInt(vista.write("Ingrese la cantidad de filas del campo: "));
+				int columnas = Integer.parseInt(vista.write("Ingrese la cantidad de columnas del campo: "));
+				int cx = Integer.parseInt(vista.write("Ingrese la posicion en x de partida: "));
+				int cy = Integer.parseInt(vista.write("Ingrese la posicion en y de partida: "));
+				int fx = Integer.parseInt(vista.write("Ingrese la posicion en x final: "));
+				int fy = Integer.parseInt(vista.write("Ingrese la posicion en y final: "));
+				int conejoPos[] = { cx, cy };
+				int posFinal[] = { fx, fy };
+					
+					
 
 				} catch (Exception e) {
 					vista.show("Escriba bien el numero");
